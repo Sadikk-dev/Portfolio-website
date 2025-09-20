@@ -1,0 +1,100 @@
+@import '_variables';
+@import url('https://fonts.googleapis.com/css2?family=Merienda+One&family=Nunito:wght@200;300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap');
+
+* {
+    font-family: 'Nunito', sans-serif;
+}
+
+html {
+    font-size: 55%;
+    overflow-x: hidden;
+    scroll-padding-top: 7rem;
+    scroll-behavior: smooth;
+    &::-webkit-scrollbar {
+        width: 1rem;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: var(--main-color);
+        border-radius: 1rem;
+    }
+    &::-webkit-scrollbar-track {
+        background: var(--primary-bg-color);
+    }
+}
+
+body {
+    position: relative;
+    background: var(--primary-bg-color);
+}
+
+@keyframes floating {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-2rem);
+    }
+}
+
+@keyframes spiner {
+    0% {
+        transform: rotate(360deg);
+    }
+}
+
+.btn {
+    animation: floating 3s linear infinite;
+    position: relative;
+    z-index: 0;
+    display: inline-block;
+    margin-top: 3rem;
+    font-size: 1.8rem;
+    text-align: center;
+    color: var(--white);
+    background: #222;
+    box-shadow: var(--box-shadow);
+    padding: 1.2rem 2rem;
+    border-radius: 5rem;
+    width: 20rem;
+    overflow: hidden;
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        background: var(--main-color);
+        top: 0;
+        height: 100%; width: 0%;
+        z-index: -1;
+        transition: .3s linear;
+    }
+    &::before {
+        left: 0;
+    }
+    &::after {
+        right: 0;
+    }
+    &:hover::before,
+    &:hover::after {
+        width: 100%;
+    }
+}
+
+.heading {
+    text-align: center;
+    margin-top: 3.5rem;
+    margin-bottom: 3rem;
+    padding-bottom: 1.5rem;
+    font-size: 2.5rem;
+    letter-spacing: .3rem;
+    color: var(--primary-text-color);
+    span {
+        color: var(--main-color);
+        font-family: 'Merienda One', sans-serif;
+    }
+}
+
+section {
+    padding: 2rem 9%;
+}
+
